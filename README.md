@@ -11,3 +11,4 @@ boiler <template> # Use one of the commmands below
 - `c`
 - `cmake-cpp`
 
+# Pip installer coming soon..
