@@ -1,5 +1,5 @@
 # Boiler
-A super lightweight, general purpose boilerplate fetcher. If my templates are too opinionated, make a fork and have at it!
+A super lightweight, general purpose boilerplate fetcher. 
 
 ### Usage
 ```bash
