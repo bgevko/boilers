@@ -66,6 +66,10 @@ def main():
         console.print('Fetching express server template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/express.js')
         write_file('server.js', content)
+        console.print('Fetching package.json template...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/express-package.json')
+        write_file('package.json', content)
+        console.print("Run 'npm install' to install dependencies.", style="yellow")
     else:
         parser.print_help()
 if __name__ == "__main__":
