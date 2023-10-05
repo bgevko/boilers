@@ -59,7 +59,7 @@ def main():
         write_file('CMakeLists.txt', content)
     elif args['command'] == 'buildscript':
         console.print('Fetching build script template...', style="yellow")
-        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/buildscript.sh')
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/rebuild.sh')
         write_file('build.sh', content)
     else:
         parser.print_help()
