@@ -38,6 +38,7 @@ def main():
     html = subparsers.add_parser('html', help='HTML boilerplate.')    # noqa: F841
     css = subparsers.add_parser('css', help='CSS template with resets.')       # noqa: F841
     cppcmake = subparsers.add_parser('cmake-cpp', help='CMake boilerplate for C++.')   # noqa: F841
+    buildscript = subparsers.add_parser('buildscript', help='Template for a build bash script')   # noqa: F841
 
 
     args = vars(parser.parse_args())
@@ -56,6 +57,10 @@ def main():
         console.print('Fetching CMake boilerplate for C++...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/cmake-cpp.txt')
         write_file('CMakeLists.txt', content)
+    elif args['command'] == 'buildscript':
+        console.print('Fetching build script template...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/buildscript.sh')
+        write_file('build.sh', content)
     else:
         parser.print_help()
 if __name__ == "__main__":
