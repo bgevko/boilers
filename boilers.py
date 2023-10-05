@@ -39,6 +39,7 @@ def main():
     css = subparsers.add_parser('css', help='CSS template with resets.')       # noqa: F841
     cppcmake = subparsers.add_parser('cmake-cpp', help='CMake boilerplate for C++.')   # noqa: F841
     buildscript = subparsers.add_parser('buildscript', help='Template for a build bash script')   # noqa: F841
+    express = subparsers.add_parser('express', help='Template for an express server')   # noqa: F841
 
 
     args = vars(parser.parse_args())
@@ -61,6 +62,10 @@ def main():
         console.print('Fetching build script template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/rebuild.sh')
         write_file('build.sh', content)
+    elif args['command'] == 'express':
+        console.print('Fetching express server template...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/express.js')
+        write_file('server.js', content)
     else:
         parser.print_help()
 if __name__ == "__main__":
