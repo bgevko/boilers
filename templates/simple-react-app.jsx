@@ -7,25 +7,40 @@ function Header({ title }) {
 }
 
 function HomePage() {
-    const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
-
-    const [likes, setLikes] = React.useState(0);
-
-    function handleClick() {
-        setLikes(likes + 1);
-    }
-
     return (
-        <div>
-            <Header title="Develop. Preview. Ship. 🚀" />
-            <ul>
-                {names.map((name) => (
-                    <li key={name}>{name}</li>
-                ))}
-            </ul>
+		<div className='
+			container h-screen
+			flex flex-col
+			mx-auto
+		'>
+			<header className='
+				container
+				h-20 bg-blue-100
+				flex justify-center items-center
+			'>
+				Header
+			</header>
 
-            <button onClick={handleClick}>Like ({likes})</button>
-        </div>
+			<section className='
+				container
+				h-full bg-red-100
+				flex
+			'>
+				<article className='
+					container
+					flex justify-center items-center
+				'>
+					Content
+				</article>
+			</section>
+			<footer className='
+				container mx-auto
+				h-10 bg-green-100
+				flex justify-center items-center
+			'>
+					footer
+			</footer>
+		</div>
     );
 }
 
