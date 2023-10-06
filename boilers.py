@@ -73,7 +73,7 @@ def main():
         console.print("Run 'npm install' to install dependencies.", style="yellow")
     elif args['command'] == 'tailwind-html':
         console.print('Fetching tailwind index.html template...', style="yellow")
-        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/tailwind-index.html')
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/tailwind-html.html')
         write_file('index.html', content)
     else:
         parser.print_help()
