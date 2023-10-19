@@ -41,6 +41,7 @@ def main():
     buildscript = subparsers.add_parser('buildscript', help='Template for a build bash script')   # noqa: F841
     express = subparsers.add_parser('express', help='Template for an express server')   # noqa: F841
     tailwind_html = subparsers.add_parser('tailwind-html', help='Blank index.html with tailwind cdn.')   # noqa: F841
+    python = subparsers.add_parser('python', help='Python boilerplate.')   # noqa: F841
 
 
     args = vars(parser.parse_args())
@@ -59,10 +60,12 @@ def main():
         console.print('Fetching CMake boilerplate for C++...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/cmake-cpp.txt')
         write_file('CMakeLists.txt', content)
+
     elif args['command'] == 'buildscript':
         console.print('Fetching build script template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/rebuild.sh')
         write_file('build.sh', content)
+
     elif args['command'] == 'express':
         console.print('Fetching express server template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/express.js')
@@ -71,10 +74,16 @@ def main():
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/express-package.json')
         write_file('package.json', content)
         console.print("Run 'npm install' to install dependencies.", style="yellow")
+
     elif args['command'] == 'tailwind-html':
         console.print('Fetching tailwind index.html template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/tailwind-html.html')
         write_file('index.html', content)
+
+    elif args['command'] == 'python':
+        console.print('Fetching python boilerplate...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/python.py')
+        write_file('main.py', content)
     else:
         parser.print_help()
 if __name__ == "__main__":

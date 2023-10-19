@@ -8,7 +8,11 @@ boiler <template> # Use one of the commmands below
 
 ### Available templates
 - `html`
-- `c`
+- `css`
 - `cmake-cpp`
+- `buildscript`
+- `express`
+- `tailwind-html`
+- `python`
 
 # Pip installer coming soon..
