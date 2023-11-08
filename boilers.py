@@ -23,8 +23,15 @@ def write_file(filename, content):
         console.print(f"Success. Imported as {filename}!", style="green")
     except FileExistsError:
         console.print(f"{filename} already exists.", style="red")
-        filename = filename.split('.')[0]
-        new_filename = f"{filename}-boiler.css"
+
+        parts = filename.rsplit('.', 1)
+
+        if len(parts) == 2:
+            base_name, file_ext = parts
+            new_filename = f"{base_name}-boilerplate.{file_ext}"
+        else:
+            base_name = parts[0]
+            new_filename = f"{base_name}-boilerplate"
         
         with open(new_filename, 'w') as f:
             f.write(content)
@@ -42,6 +49,7 @@ def main():
     express = subparsers.add_parser('express', help='Template for an express server')   # noqa: F841
     tailwind_html = subparsers.add_parser('tailwind-html', help='Blank index.html with tailwind cdn.')   # noqa: F841
     python = subparsers.add_parser('python', help='Python boilerplate.')   # noqa: F841
+    makefile = subparsers.add_parser('makefile', help='Makefile boilerplate.')   # noqa: F841
 
 
     args = vars(parser.parse_args())
@@ -84,6 +92,11 @@ def main():
         console.print('Fetching python boilerplate...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/python.py')
         write_file('main.py', content)
+
+    elif args['command'] == 'makefile':
+        console.print('Fetching makefile boilerplate...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/makefile')
+        write_file('makefile', content)
     else:
         parser.print_help()
 if __name__ == "__main__":
