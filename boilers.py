@@ -50,7 +50,8 @@ def main():
     tailwind_html = subparsers.add_parser('tailwind-html', help='Blank index.html with tailwind cdn.')   # noqa: F841
     python = subparsers.add_parser('python', help='Python boilerplate.')   # noqa: F841
     makefile = subparsers.add_parser('makefile', help='Makefile boilerplate.')   # noqa: F841
-
+    devnote = subparsers.add_parser('devnote', help='Template for a devnote')   # noqa: F841
+    devnote.add_argument('-f', '--filename', type=str, help='Filename for devnote', default='devnote.md')   # noqa: F841
 
     args = vars(parser.parse_args())
 
@@ -97,6 +98,12 @@ def main():
         console.print('Fetching makefile boilerplate...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/makefile')
         write_file('makefile', content)
+
+    elif args['command'] == 'devnote':
+        console.print('Fetching devnote template...', style="yellow")
+        content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/devnote.mdx')
+        write_file(args['filename'], content)
+
     else:
         parser.print_help()
 if __name__ == "__main__":
