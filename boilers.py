@@ -42,6 +42,7 @@ def main():
     subparsers = parser.add_subparsers(dest='command')
 
     # Available commands
+    help = subparsers.add_parser('help', help='Show help.')   # noqa: F841
     html = subparsers.add_parser('html', help='HTML boilerplate.')    # noqa: F841
     css = subparsers.add_parser('css', help='CSS template with resets.')       # noqa: F841
     cppcmake = subparsers.add_parser('cmake-cpp', help='CMake boilerplate for C++.')   # noqa: F841
@@ -59,6 +60,9 @@ def main():
 
 
     args = vars(parser.parse_args())
+
+    if args['command'] == 'help':
+        parser.print_help()
 
     if args['command'] == 'html':
         console.print('Fetching HTML boilerplate...', style="yellow")
