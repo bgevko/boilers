@@ -55,7 +55,7 @@ def main():
     devnote.add_argument('-f', '--filename', type=str, help='Filename for devnote', default='devnote.md')   # noqa: F841
     rc = subparsers.add_parser('rc', help='React component boilerplate.')   # noqa: F841
     rc.add_argument('-f', '--filename', type=str, help='Filename for react component', default='Component.js')   # noqa: F841
-    next_page = subparsers.add_parser('next-static-page', help='Next.js page boilerplate.')   # noqa: F841
+    next_page = subparsers.add_parser('next-page', help='Next.js page boilerplate.')   # noqa: F841
     next_page.add_argument('-d', '--dynamic', help='Create dynamic page', action='store_false')
 
 
