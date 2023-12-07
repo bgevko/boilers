@@ -51,11 +51,11 @@ def main():
     tailwind_html = subparsers.add_parser('tailwind-html', help='Blank index.html with tailwind cdn.')   # noqa: F841
     python = subparsers.add_parser('python', help='Python boilerplate.')   # noqa: F841
     makefile = subparsers.add_parser('makefile', help='Makefile boilerplate.')   # noqa: F841
-    devnote = subparsers.add_parser('devnote', help='Template for a devnote')   # noqa: F841
+    devnote = subparsers.add_parser('devnote', help='-f <filename> to specify filename.')   # noqa: F841
     devnote.add_argument('-f', '--filename', type=str, help='Filename for devnote', default='devnote.md')   # noqa: F841
-    rc = subparsers.add_parser('rc', help='React component boilerplate.')   # noqa: F841
+    rc = subparsers.add_parser('rc', help='React component boilerplate. -f <filename>')   # noqa: F841
     rc.add_argument('-f', '--filename', type=str, help='Filename for react component', default='Component.js')   # noqa: F841
-    next_page = subparsers.add_parser('next-page', help='Next.js page boilerplate.')   # noqa: F841
+    next_page = subparsers.add_parser('next-page', help='Next.js page boilerplate. -d: Will generate a dynamic page insted of static')   # noqa: F841
     next_page.add_argument('-d', '--dynamic', help='Create dynamic page', action='store_false')
 
 
