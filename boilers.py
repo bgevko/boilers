@@ -61,9 +61,6 @@ def main():
 
     args = vars(parser.parse_args())
 
-    if args['command'] == 'help':
-        parser.print_help()
-
     if args['command'] == 'html':
         console.print('Fetching HTML boilerplate...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/html.html')
