@@ -54,6 +54,9 @@ def main():
     devnote.add_argument('-f', '--filename', type=str, help='Filename for devnote', default='devnote.md')   # noqa: F841
     rc = subparsers.add_parser('rc', help='React component boilerplate.')   # noqa: F841
     rc.add_argument('-f', '--filename', type=str, help='Filename for react component', default='Component.js')   # noqa: F841
+    next_page = subparsers.add_parser('next-static-page', help='Next.js page boilerplate.')   # noqa: F841
+    next_page.add_argument('-d', '--dynamic', help='Create dynamic page', action='store_false')
+
 
     args = vars(parser.parse_args())
 
@@ -110,6 +113,15 @@ def main():
         console.print('Fetching react component template...', style="yellow")
         content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/react-component.js')
         write_file(args['filename'], content)
+
+    elif args['command'] == 'next-page':
+        if args['dynamic']:
+            console.print('Fetching next.js dynamic page template...', style="yellow")
+            content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/next-dynamic-page.js')
+        else:
+            console.print('Fetching next.js static page template...', style="yellow")
+            content = get_template('https://raw.githubusercontent.com/bgevko/boilers/main/templates/next-static-page.js')
+        write_file('page.js', content)
 
     else:
         parser.print_help()
